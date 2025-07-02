@@ -309,7 +309,7 @@ theorem image_eq (f : α → β) (s : Set α) : f '' s = (Function.graph f).imag
   rfl
 
 theorem preimage_eq (f : α → β) (s : Set β) : f ⁻¹' s = (Function.graph f).preimage s := by
-  simp [Set.preimage, Rel.preimage, Rel.inv, flip, Rel.image]
+  simp [Set.preimage, Rel.preimage]
 
 theorem preimage_eq_core (f : α → β) (s : Set β) : f ⁻¹' s = (Function.graph f).core s := by
   simp [Set.preimage, Rel.core]
