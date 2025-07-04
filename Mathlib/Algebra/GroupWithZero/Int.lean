@@ -14,7 +14,7 @@ assert_not_exists Ring
 
 open Multiplicative
 
-namespace WithZero
+namespace WithZeroMulInt
 
 @[deprecated exp_zsmul (since := "2025-05-17")]
 theorem ofAdd_zpow (a : ℤ) : (↑(ofAdd a) : ℤᵐ⁰) = ofAdd (1 : ℤ) ^ a :=
@@ -26,4 +26,7 @@ theorem ofAdd_neg_one_pow_comm (a : ℤ) (n : ℕ) :
   show (exp (-1 : ℤ) ^ (-a)) ^ n = exp (n : ℤ) ^ a by
     simp [← exp_zsmul, ← exp_nsmul, mul_comm, exp_neg]
 
-end WithZero
+lemma exp_pow (a : ℤ) (b : ℕ) : exp a ^ b = exp (b * a) := by
+  simp only [← Int.nsmul_eq_mul, exp_apply, ofAdd_nsmul, map_pow]
+
+end WithZeroMulInt
